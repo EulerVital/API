@@ -21,7 +21,7 @@ namespace RelatoriosHTML
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            relatorio = new RelatorioController();
+            relatorio = new RelatorioController("EmplacamentoCidade");
             relatorio.InstanciarObjeto("ABRARE");
             EscolhaRelatorio("EmplacamentoCidade");
         }

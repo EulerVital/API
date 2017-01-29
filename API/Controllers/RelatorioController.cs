@@ -9,6 +9,8 @@ using API.DAO;
 using API.Models;
 using API.Controllers;
 using API.Controller;
+using System.Web;
+using System.IO;
 
 namespace API.Controllers
 {
@@ -59,9 +61,23 @@ namespace API.Controllers
 
         int Regis = 0;
 
+        public RelatorioController(string id)
+        {
+            GetRelatorio(id);
+        }
+
         [Route("{id}")]
         public string GetRelatorio(string id)
         {
+
+            using (TextWriter d = File.CreateText("E:\\perl.txt"))
+            {
+                HttpResponse c = new HttpResponse(d);
+                //c.Redirect("Relatorios.aspx?id=" + id);
+            }
+
+            Request.CreateResponse("Relatorios.aspx?id=" + id);
+            
 
             eDetalhamento detalhe = new eDetalhamento();
 
